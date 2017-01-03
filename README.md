@@ -19,7 +19,55 @@ $ composer require carlosafonso/emt-sdk-php
 
 ## Usage
 
-[TBC]
+You'll need a set of authentication credentials issued by the EMT OpenData team. These credentials can be obtained here: http://opendata.emtmadrid.es/Formulario.
+
+Create an instance of the SDK client passing the credentials described above:
+
+```php
+$clientId = 'FOO.BAR.BAZ';
+$passkey = 'ABCDEFGH-1234-ABCD-1234-ABCDEFGHIJKL'
+$client = new Afonso\Emt\Client($clientId, $passkey);
+```
+
+Then call any of the available methods:
+
+```php
+$data = $client->getRouteLines([123], new \DateTime());
+print_r($data);
+```
+
+Which should output something like this (truncated for readability):
+
+```
+Array
+(
+    [0] => stdClass Object
+        (
+            [line] => 123
+            [secDetail] => 10
+            [orderDetail] => 1
+            [node] => 1425
+            [distance] => 0
+            [distancePreviousStop] => 0
+            [name] => PZA.DE LEGAZPI-MAESTRO ARBOS
+            [latitude] => 40.390813555735
+            [longitude] => -3.6951516754786
+        )
+
+    [1] => stdClass Object
+        (
+            [line] => 123
+            [secDetail] => 10
+            [orderDetail] => 1
+            [node] => 930
+            [distance] => 839
+            [distancePreviousStop] => 839
+            [name] => ANTONIO LOPEZ-AV.CORDOBA
+            [latitude] => 40.386984182818
+            [longitude] => -3.6982344337479
+        )
+)
+```
 
 ## Change log
 
