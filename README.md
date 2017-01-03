@@ -69,6 +69,12 @@ Array
 )
 ```
 
+### Available methods
+
+The current version of this library exposes all API endpoints from the BUS web service (http://opendata.emtmadrid.es/Servicios-web/BUS).
+
+Additional services are expected to be implemented soon.
+
 ## Change log
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
