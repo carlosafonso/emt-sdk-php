@@ -30,8 +30,7 @@ class Client
      */
     public function __construct($clientId, $passkey)
     {
-        // $client = new Guzzle(['base_uri' => self::ENDPOINT]);
-        $this->launcher = new RequestLauncher($clientId, $passkey/*, $client*/);
+        $this->launcher = new RequestLauncher($clientId, $passkey);
     }
 
     /**

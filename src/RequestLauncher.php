@@ -2,7 +2,7 @@
 
 namespace Afonso\Emt;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\ClientInterface;
 use RuntimeException;
 
@@ -45,7 +45,7 @@ class RequestLauncher
         $this->passkey = $passkey;
 
         if ($client === null) {
-            $client = new Client();
+            $client = new Guzzle();
         }
         $this->client = $client;
     }
