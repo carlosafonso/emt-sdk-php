@@ -158,4 +158,14 @@ class Client
             ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetNodesLines.php', $params)
             ->resultValues;
     }
+
+    /**
+     * Set the RequestLauncher instance to be used by this client.
+     *
+     * @param \Afonso\Emt\RequestLauncher $launcher
+     */
+    public function setRequestLauncher(RequestLauncher $launcher)
+    {
+        $this->launcher = $launcher;
+    }
 }
