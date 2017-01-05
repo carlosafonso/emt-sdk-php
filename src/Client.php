@@ -47,9 +47,7 @@ class Client
             'Lines' => join('|', $lines),
             'SelectDate' => $date->format('d/m/Y'),
         ];
-        return $this->launcher
-            ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetRouteLines.php', $params)
-            ->resultValues;
+        return $this->callBusService('GetRouteLines.php', $params);
     }
 
     /**
@@ -66,9 +64,7 @@ class Client
             'SelectDateBegin' => $startDate->format('d/m/Y'),
             'SelectDateEnd' => $endDate->format('d/m/Y'),
         ];
-        return $this->launcher
-            ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetCalendar.php', $params)
-            ->resultValues;
+        return $this->callBusService('GetCalendar.php', $params);
     }
 
     /**
@@ -85,9 +81,7 @@ class Client
             'Lines' => join('|', $lines),
             'SelectDate' => $date->format('d/m/Y'),
         ];
-        return $this->launcher
-            ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetListLines.php', $params)
-            ->resultValues;
+        return $this->callBusService('GetListLines.php', $params);
     }
 
     /**
@@ -98,9 +92,7 @@ class Client
      */
     public function getGroups()
     {
-        return $this->launcher
-            ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetGroups.php')
-            ->resultValues;
+        return $this->callBusService('GetGroups.php');
     }
 
     /**
@@ -117,9 +109,7 @@ class Client
             'Lines' => join('|', $lines),
             'SelectDate' => $date->format('d/m/Y'),
         ];
-        return $this->launcher
-            ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetTimesLines.php', $params)
-            ->resultValues;
+        return $this->callBusService('GetTimesLines.php', $params);
     }
 
     /**
@@ -136,9 +126,7 @@ class Client
             'Lines' => join('|', $lines),
             'SelectDate' => $date->format('d/m/Y'),
         ];
-        return $this->launcher
-            ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetTimeTableLines.php', $params)
-            ->resultValues;
+        return $this->callBusService('GetTimeTableLines.php', $params);
     }
 
     /**
@@ -154,9 +142,7 @@ class Client
         $params = [
             'Nodes' => join('|', $stopIds),
         ];
-        return $this->launcher
-            ->launchRequest(self::ENDPOINT . '/emt-proxy-server/last/bus/GetNodesLines.php', $params)
-            ->resultValues;
+        return $this->callBusService('GetNodesLines.php', $params);
     }
 
     /**
@@ -167,5 +153,18 @@ class Client
     public function setRequestLauncher(RequestLauncher $launcher)
     {
         $this->launcher = $launcher;
+    }
+
+    /**
+     * Make an arbitrary call to the Bus service.
+     *
+     * @param string $endpoint
+     * @param array $params
+     * @return \stdClass
+     */
+    protected function callBusService($endpoint, array $params = [])
+    {
+        $url = self::ENDPOINT . '/emt-proxy-server/last/bus/' . $endpoint;
+        return $this->launcher->launchRequest($url, $params)->resultValues;
     }
 }
