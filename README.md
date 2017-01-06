@@ -26,7 +26,7 @@ Create an instance of the SDK client passing the credentials described above:
 ```php
 $clientId = 'FOO.BAR.BAZ';
 $passkey = 'ABCDEFGH-1234-ABCD-1234-ABCDEFGHIJKL'
-$client = new Afonso\Emt\Client($clientId, $passkey);
+$client = new Afonso\Emt\BusClient($clientId, $passkey);
 ```
 
 Then call any of the available methods:

@@ -7,7 +7,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * The Client instance under test.
      *
-     * @var \Afonso\Emt\Client
+     * @var \Afonso\Emt\BusClient
      */
     protected $client;
 
@@ -15,7 +15,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
         $this->launcherMock = $this->createMock(RequestLauncher::class);
-        $this->client = new Client('client', 'passkey');
+        $this->client = new BusClient('client', 'passkey');
         $this->client->setRequestLauncher($this->launcherMock);
     }
 
