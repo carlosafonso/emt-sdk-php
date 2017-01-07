@@ -12,8 +12,6 @@ use RuntimeException;
  */
 class BusClient extends Client
 {
-    const ENDPOINT = 'https://openbus.emtmadrid.es:9443';
-
     /**
      * Return the itinerary of one or more lines.
      *
@@ -125,19 +123,8 @@ class BusClient extends Client
         ];
         return $this->callBusService('GetNodesLines.php', $params);
     }
-
     /**
-     * Set the RequestLauncher instance to be used by this client.
-     *
-     * @param \Afonso\Emt\RequestLauncher $launcher
-     */
-    public function setRequestLauncher(RequestLauncher $launcher)
-    {
-        $this->launcher = $launcher;
-    }
-
-    /**
-     * Make an arbitrary call to the Bus service.
+     * Make an arbitrary call to the BUS service.
      *
      * @param string $endpoint
      * @param array $params
