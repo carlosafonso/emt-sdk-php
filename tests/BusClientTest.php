@@ -2,7 +2,7 @@
 
 namespace Afonso\Emt;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class BusClientTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * The Client instance under test.
