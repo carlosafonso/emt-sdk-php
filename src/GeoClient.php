@@ -52,6 +52,25 @@ class GeoClient extends Client
     }
 
     /**
+     * Return details about stops around a given geographic coordinate and,
+     * optionally, within the specified radius.
+     *
+     * @param int $stopId
+     * @param int|null $radius
+     * @return \stdClass
+     * @throws \RuntimeException
+     */
+    public function getStopsFromXY($x, $y, $radius = null)
+    {
+        $params = [
+            'coordinateX' => $x,
+            'coordinateY' => $y,
+            'Radius' => $radius,
+        ];
+        return $this->callGeoService('GetStopsFromXY.php', $params);
+    }
+
+    /**
      * Make an arbitrary call to the GEO service.
      *
      * @param string $endpoint
