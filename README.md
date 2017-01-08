@@ -69,6 +69,15 @@ Array
 )
 ```
 
+Each web service has its own client implementation:
+
+```php
+$busClient = new Afonso\Emt\BusClient($clientId, $passkey);
+$geoClient = new Afonso\Emt\GeoClient($clientId, $passkey);
+
+/* (additional clients are on the works) */
+```
+
 ### Available methods
 
 The current version of this library exposes all API endpoints from the BUS web service (http://opendata.emtmadrid.es/Servicios-web/BUS).

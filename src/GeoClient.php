@@ -12,21 +12,43 @@ use RuntimeException;
 class GeoClient extends Client
 {
     /**
-     * Return stops around a given address as well as lines that serve those
-     * stops.
+     * Return details about stops around a given address and, optionally,
+     * within the specified radius.
      *
-     * @var string $streetName
-     * @var int $streetNumber
+     * An optional radius can be passed as well.
+     *
+     * @param string $streetName
+     * @param int $streetNumber
+     * @param int|null $radius
      * @return \stdClass
      * @throws \RuntimeException
      */
-    public function getStreet($streetName, $streetNumber)
+    public function getStreet($streetName, $streetNumber, $radius = null)
     {
         $params = [
             'description' => $streetName,
             'streetNumber' => $streetNumber,
+            'Radius' => $radius,
         ];
         return $this->callGeoService('GetStreet.php', $params);
+    }
+
+    /**
+     * Return details about stops around a given stop and, optionally, within
+     * the specified radius.
+     *
+     * @param int $stopId
+     * @param int|null $radius
+     * @return \stdClass
+     * @throws \RuntimeException
+     */
+    public function getStopsFromStop($stopId, $radius = null)
+    {
+        $params = [
+            'idStop' => $stopId,
+            'Radius' => $radius,
+        ];
+        return $this->callGeoService('GetStopsFromStop.php', $params);
     }
 
     /**
