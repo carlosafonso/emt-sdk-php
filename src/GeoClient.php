@@ -80,7 +80,7 @@ class GeoClient extends Client
      */
     public function getArriveStop($stopId)
     {
-        $params = ['stopId' => $stopId];
+        $params = ['idStop' => $stopId];
         return $this->callGeoService('GetArriveStop.php', $params);
     }
 
