@@ -64,6 +64,22 @@ class GeoClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('bar', $data->stops[0]->foo);
     }
 
+    public function testGetArriveStop()
+    {
+        $this->launcherMock->expects($this->once())
+            ->method('launchRequest')
+            ->with(
+                'https://openbus.emtmadrid.es:9443/emt-proxy-server/last/geo/GetArriveStop.php',
+                ['idStop' => 1234]
+            )
+            ->willReturn($this->toObject(['arrives' => [['foo' => 'bar'], ['baz' => 'quux']]]));
+
+        $data = $this->client->getArriveStop(1234);
+
+        $this->assertCount(2, $data->arrives);
+        $this->assertEquals('bar', $data->arrives[0]->foo);
+    }
+
     protected function toObject(array $data)
     {
         return json_decode(json_encode($data));

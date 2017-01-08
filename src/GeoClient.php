@@ -71,6 +71,20 @@ class GeoClient extends Client
     }
 
     /**
+     * Return incoming bus info for the given stop, such as distance and
+     * waiting time.
+     *
+     * @param int $stopId
+     * @return \stdClass
+     * @throws \RuntimeException
+     */
+    public function getArriveStop($stopId)
+    {
+        $params = ['stopId' => $stopId];
+        return $this->callGeoService('GetArriveStop.php', $params);
+    }
+
+    /**
      * Make an arbitrary call to the GEO service.
      *
      * @param string $endpoint
