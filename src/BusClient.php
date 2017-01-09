@@ -15,8 +15,8 @@ class BusClient extends Client
     /**
      * Return the itinerary of one or more lines.
      *
-     * @var int[] $lines
-     * @var \DateTime $date
+     * @param int[] $lines
+     * @param \DateTime $date
      * @return \stdClass
      * @throws \RuntimeException
      */
@@ -32,8 +32,8 @@ class BusClient extends Client
     /**
      * Return calendar details for the given date interval.
      *
-     * @var \DateTime $startDate
-     * @var \DateTime $endDate
+     * @param \DateTime $startDate
+     * @param \DateTime $endDate
      * @return \stdClass
      * @throws \RuntimeException
      */
@@ -49,8 +49,8 @@ class BusClient extends Client
     /**
      * Return a list with line details.
      *
-     * @var int[] $lines
-     * @var \DateTime $date
+     * @param int[] $lines
+     * @param \DateTime $date
      * @return \stdClass
      * @throws \RuntimeException
      */
@@ -77,8 +77,8 @@ class BusClient extends Client
     /**
      * Return start and end operation times of one or more lines.
      *
-     * @var int[] $lines
-     * @var \DateTime $date
+     * @param int[] $lines
+     * @param \DateTime $date
      * @return \stdClass
      * @throws \RuntimeException
      */
@@ -94,8 +94,8 @@ class BusClient extends Client
     /**
      * Return timetable details of one or more lines.
      *
-     * @var int[] $lines
-     * @var \DateTime $date
+     * @param int[] $lines
+     * @param \DateTime $date
      * @return \stdClass
      * @throws \RuntimeException
      */
@@ -112,7 +112,7 @@ class BusClient extends Client
      * Return details of one or more bus stops including name, served lines
      * and geographic coordinates.
      *
-     * @var int[] $stopIds
+     * @param int[] $stopIds
      * @return \stdClass
      * @throws \RuntimeException
      */

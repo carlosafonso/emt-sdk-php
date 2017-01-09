@@ -56,8 +56,8 @@ class RequestLauncher
      * This method adds the relevant authentication parameters to the request
      * and decodes the returned response.
      *
-     * @var string $endpoint
-     * @var array $params
+     * @param string $endpoint
+     * @param array $params
      * @return \stdClass
      * @throws \RuntimeException
      */
