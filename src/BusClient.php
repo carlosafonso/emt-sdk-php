@@ -123,6 +123,7 @@ class BusClient extends Client
         ];
         return $this->callBusService('GetNodesLines.php', $params);
     }
+
     /**
      * Make an arbitrary call to the BUS service.
      *
